@@ -59,7 +59,7 @@ def product_edit_view(request, id):
             return redirect('product_view', id=product.id)
     else:
         form = ProductForm(instance=product)
-    return render(request, 'store/product_edit.html', {'form': form, 'product': product})
+    return render(request, 'product_edit.html', {'form': form, 'product': product})
 
 def product_delete_view(request, id):
     product = get_object_or_404(Product, id=id)
