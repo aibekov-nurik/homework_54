@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'store/base.html' %}
+
+{% block content %}
+<h2>Редактировать категорию</h2>
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_name">Наименование</label>
+        {{ form.name|as_crispy_field }}
+    </div>
+    <div class="form-group">
+        <label for="id_description">Описание</label>
+        {{ form.description|as_crispy_field }}
+    </div>
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>
+{% endblock %}
